@@ -226,7 +226,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\":\"thana\",\r\n    \"price\":15,\r\n    \"desc\":\"6 blog desc\"\r\n}",
+							"raw": "{\r\n    \"title\":\"thana\",\r\n    \"price\":1,\r\n    \"desc\":\"6 blog desc\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
