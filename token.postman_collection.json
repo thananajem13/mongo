@@ -217,7 +217,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzM2Y1MjVlMTZlYWUyMmMwYzBlNzc4YyIsImlhdCI6MTY2NTA5NDM0OX0.mMsjrS8qqMWtk-p0xJUX5DaJv-RUvKJKcQcTguNBsXE",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzM2Y1MjVlMTZlYWUyMmMwYzBlNzc4YyIsImlhdCI6MTY2NTI0OTA2MX0.aEzuJBpfLa6L8SFL0WmB-ZvSVcD9LIu2qerJuog1TvE",
 									"type": "string"
 								}
 							]
@@ -226,7 +226,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\":\"one blog\",\r\n    \"price\":15,\r\n    \"desc\":\"one blog desc\"\r\n}",
+							"raw": "{\r\n    \"title\":\"thana\",\r\n    \"price\":15,\r\n    \"desc\":\"6 blog desc\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -338,6 +338,28 @@
 								"api",
 								"v1",
 								"blog"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "blogDependOnCond",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/v1/blog/blogDependOnCond",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"blog",
+								"blogDependOnCond"
 							]
 						}
 					},
