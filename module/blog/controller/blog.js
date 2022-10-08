@@ -40,9 +40,8 @@ export const getBlogs = async (req, res) => {
 /** */
 
 /*search point solution */
-export const getBlogByID = async (req,res)=>{
-    const {id}=req.params
-    const blogById = await blogModel.findById({_id:id})
+export const getBlogDependOnCondition = async (req,res)=>{ 
+    const blogById = await blogModel.find({title:"thana"})
     .populate([
         {
             path: 'userId',
