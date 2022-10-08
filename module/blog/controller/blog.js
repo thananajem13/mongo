@@ -1,8 +1,8 @@
 import { blogModel } from "../../../DB/model/blog.js"
 export const addBlog = async (req, res) => {
     try {
-        const { title, desc,price } = req.body
-        const newBlog = new blogModel({ title, desc,price,userId:req.user._id })
+        const { title, desc, price } = req.body
+        const newBlog = new blogModel({ title, desc, price, userId: req.user._id })
         const savedBlog = await newBlog.save()
         savedBlog ? res.json({ message: "Done", savedBlog }) : res.json({ message: "error", savedBlog })
     } catch (error) {
@@ -11,17 +11,17 @@ export const addBlog = async (req, res) => {
 
 }
 
-export  const updateBlog = async (req,res)=>{
-    const {title,desc} = req.body
-    const {blogId} = req.params
-    const updateBlog = await blogModel.findOneAndUpdate({_id:blogId,userId:req.user._id},{title,desc},{new:true})
-    updateBlog?res.json({message:"Done",updateBlog}):res.json({message:"invalid blog id or error in auth"})
+export const updateBlog = async (req, res) => {
+    const { title, desc } = req.body
+    const { blogId } = req.params
+    const updateBlog = await blogModel.findOneAndUpdate({ _id: blogId, userId: req.user._id }, { title, desc }, { new: true })
+    updateBlog ? res.json({ message: "Done", updateBlog }) : res.json({ message: "invalid blog id or error in auth" })
 }
 
-export  const deleteBlog = async (req,res)=>{ 
-    const {blogId} = req.params
-    const deleteBlog = await blogModel.deleteOne({_id:blogId,userId:req.user._id} )
-    deleteBlog.deletedCount?res.json({message:"Done",deleteBlog}):res.json({message:"invalid blog id or error in auth",deleteBlog})
+export const deleteBlog = async (req, res) => {
+    const { blogId } = req.params
+    const deleteBlog = await blogModel.deleteOne({ _id: blogId, userId: req.user._id })
+    deleteBlog.deletedCount ? res.json({ message: "Done", deleteBlog }) : res.json({ message: "invalid blog id or error in auth", deleteBlog })
 }
 export const getBlogs = async (req, res) => {
     try {
@@ -40,16 +40,15 @@ export const getBlogs = async (req, res) => {
 /** */
 
 /*search point solution */
-export const getBlogDependOnCondition = async (req,res)=>{ 
-    const blogById = await blogModel.find({title:"thana"})
-    .populate([
-        {
-            path: 'userId',
-            select: "email firstname lastname"
-        }
-    ]) 
-    blogById?res.json({message:"Done",blogById}):res.json({message:"invalid id",blogById})
+export const getBlogDependOnCondition = async (req, res) => {
+    const blogById = await blogModel.find({ price: { $gte: 15 } })
+        .populate([
+            {
+                path: 'userId',
+                select: "email firstname lastname"
+            }
+        ])
+    blogById ? res.json({ message: "Done", blogById }) : res.json({ message: "invalid id", blogById })
 }
 
 
- 
