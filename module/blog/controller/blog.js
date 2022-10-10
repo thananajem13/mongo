@@ -58,38 +58,17 @@ export const deleteBlog = async (req, res) => {
 }
 export const getBlogs = async (req, res) => {
     try {
-        const blogs = await blogModel.find( {})
+        const blogs = await blogModel.find({})
         .populate([
             {
                 path: 'userId',  
-                match:  { isDeleted: false,userId:{$ne:null} } ,
-                select: "email firstname lastname isDeleted",
-                // match:{
-                //     user:{
-                //         $elemMatch:{isDeleted:false}
-                //     }
-                // }
-                // match:{
-                //     doc:{
-                //         $elemMatch:{isDeleted:false}
-                //     }
-                // }
-                // match:[{isDeleted:false}  ]   
-                // match:[{$and:[{isDeleted:false}
-                //     // , {userId:{$ne:null}}
-                // ]}  ]  
-                // match: doc => ({ authorId: doc.authorId, deleted: { $ne: true } })
-                // match: doc => {
-                //     ({    isDeleted:false  }) 
-                
-                // }
+                select: "email firstname lastname isDeleted", 
+                match:   { isDeleted: false }  ,
+                 
                    }
-        ])
-          
+        ]) 
+        // blogs?.length ? res.json({ message: "Done", blogs }) : res.json({ message: "no blogs found", blogs }) 
        const result = blogs.filter((blog)=>{return blog.userId !=null})
-         
-       
-
         result?.length ? res.json({ message: "Done", blogs:result }) : res.json({ message: "no blogs found", blogs:result })
     }
      catch (error) {
@@ -110,11 +89,12 @@ export const getBlogDependOnCondition = async (req, res) => {
                 match:{isDeleted:false}       
             }
         ])
-        const result = blogById.filter((blog)=>{return blog.userId !=null})
+       blogById?.length? res.json({ message: "Done", blogs:blogById }):res.json({message:"no blogs found",blogs:blogById})
+        // const result = blogById.filter((blog)=>{return blog.userId !=null})
          
        
 
-        result?.length ? res.json({ message: "Done", blogs:result }) : res.json({ message: "no blogs found", blogs:result })
+        // result?.length ? res.json({ message: "Done", blogs:result }) : res.json({ message: "no blogs found", blogs:result })
     } catch (error) {
         
     }
