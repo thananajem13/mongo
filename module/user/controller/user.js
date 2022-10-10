@@ -17,9 +17,9 @@ export const getUsers = async (req, res, next) => {
     result.length ? res.json({ message: "Done", result }) : res.json({ message: "no users", result })
 
 }
-export const softDelete = async (req, res, next) => {      
-    const { id } = req.params 
-    const updateDeleteStatus =await userModel.findOneAndUpdate({ _id: id, isDeleted: false},{isDeleted:true},{new:true})
+export const softDelete = async (req, res, next) => { 
+    console.log(req.user._id)
+    const updateDeleteStatus =await userModel.findOneAndUpdate({ _id:req.user._id, isDeleted: false},{isDeleted:true},{new:true})
     updateDeleteStatus ? res.json({ message: "Done", updateDeleteStatus }) : res.json({ message: "invalid id", updateDeleteStatus })
 }
 /** */

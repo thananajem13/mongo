@@ -4,7 +4,7 @@ import { addBlog, deleteBlog, getBlogDependOnCondition, getBlogs, updateBlog } f
 const router = Router()
 router.post('/',auth(),addBlog)
 router.get('/',getBlogs)
-router.get('/blogDependOnCond',getBlogDependOnCondition)
+router.get('/blogDependOnCond',auth(),getBlogDependOnCondition)
 router.put('/:blogId',auth(),updateBlog)
 router.delete('/:blogId',auth(),deleteBlog)
 

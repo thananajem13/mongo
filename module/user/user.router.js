@@ -7,5 +7,5 @@ router.get('/',getUsers)
 
 router.patch('/',auth(),updateUser)
 router.delete('/',auth(),deleteUser) 
-router.patch('/:id',auth(),softDelete)
+router.patch('/soft',auth(),softDelete)
 export default router
