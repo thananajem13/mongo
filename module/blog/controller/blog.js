@@ -57,7 +57,8 @@ export const deleteBlog = async (req, res) => {
     
 }
 export const getBlogs = async (req, res) => {
-    try {
+    try { 
+        
         const blogs = await blogModel.find({})
         .populate([
             {
