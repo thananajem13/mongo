@@ -68,9 +68,9 @@ export const getBlogs = async (req, res) => {
                  
                    }
         ]) 
-        // blogs?.length ? res.json({ message: "Done", blogs }) : res.json({ message: "no blogs found", blogs }) 
-       const result = blogs.filter((blog)=>{return blog.userId !=null})
-        result?.length ? res.json({ message: "Done", blogs:result }) : res.json({ message: "no blogs found", blogs:result })
+        blogs?.length ? res.json({ message: "Done", blogs }) : res.json({ message: "no blogs found", blogs }) 
+    //    const result = blogs.filter((blog)=>{return blog.userId !=null})
+    //     result?.length ? res.json({ message: "Done", blogs:result }) : res.json({ message: "no blogs found", blogs:result })
     }
      catch (error) {
         res.json({ message: "catch error", error })
