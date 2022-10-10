@@ -58,11 +58,11 @@ export const deleteBlog = async (req, res) => {
 }
 export const getBlogs = async (req, res) => {
     try {
-        let blogs = await blogModel.find( )
+        let blogs = await blogModel.find( {})
         .populate([
             {
                 path: 'userId',  
-                match: [{ isDeleted: false }],
+                match: [{ isDeleted: false,userId:{$ne:null} }],
                 select: "email firstname lastname isDeleted",
                 // match:{
                 //     user:{
