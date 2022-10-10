@@ -57,12 +57,12 @@ export const deleteBlog = async (req, res) => {
     
 }
 export const getBlogs = async (req, res) => {
-    // try {
+    try {
         let blogs = await blogModel.find( )
         .populate([
             {
                 path: 'userId',  
-                // match: [{ isDeleted: false }],
+                match: [{ isDeleted: false }],
                 select: "email firstname lastname isDeleted",
                 // match:{
                 //     user:{
@@ -88,25 +88,25 @@ export const getBlogs = async (req, res) => {
          
        
         blogs?.length ? res.json({ message: "Done", blogs }) : res.json({ message: "no blogs found", blogs })
-    // }
-    //  catch (error) {
-        // res.json({ message: "catch error", error })
-    // }
+    }
+     catch (error) {
+        res.json({ message: "catch error", error })
+    }
 
 }
 /** */
 
 /*search point solution */
 export const getBlogDependOnCondition = async (req, res) => {
-    const blogById = await blogModel.aggregate([{ $match: { isDeleted: false}}]).allowDiskUse(true);
-    // const blogById = await blogModel.find({ price: { $gte: 15 },userId:req.user._id })
-    //     .populate([
-    //         {
-    //             path: 'userId',   
-    //             select: { email:1, firstname:1, lastname:1, isDeleted:1 },
-    //             match:[{isDeleted:false}]       
-    //         }
-    //     ])
+    // const blogById = await blogModel.aggregate([{ $match: { isDeleted: false}}]).allowDiskUse(true);
+    const blogById = await blogModel.find({ price: { $gte: 15 },userId:req.user._id })
+        .populate([
+            {
+                path: 'userId',   
+                select: { email:1, firstname:1, lastname:1, isDeleted:1 },
+                match:[{isDeleted:false}]       
+            }
+        ])
     blogById ? res.json({ message: "Done", blogById }) : res.json({ message: "invalid id", blogById })
 }
 
