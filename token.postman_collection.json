@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{ \r\n    \"firstname\": \"ahmad\", \r\n    \"lastname\": \"mahmoud\", \r\n    \"email\": \"ahmh22@gmail.com\",\r\n    \"password\": \"mohammadB23@\",\r\n    \"age\":20,\r\n    \"cpassword\":\"mohammadB23@\"\r\n}",
+							"raw": "{ \r\n    \"firstname\": \"ahmad\", \r\n    \"lastname\": \"mahmoud\", \r\n    \"email\": \"ahmh01@gmail.com\",\r\n    \"password\": \"mohammadB23@\",\r\n    \"age\":20,\r\n    \"cpassword\":\"mohammadB23@\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -50,7 +50,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{ \r\n     \"email\": \"ahmh22@gmail.com\",\r\n    \"password\": \"mohammadB23@\"\r\n}",
+							"raw": "{ \r\n      \"email\": \"ahmh01@gmail.com\",\r\n    \"password\": \"mohammadB23@\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -180,7 +180,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzM2Y0ZDAzZGNjZWE1MGY5NzIyOTQyOCIsImlhdCI6MTY2NTA5Mjg5OH0.5g2vhsS093TPzuOwqwDSWf1fnnDey9dQSQfeEg2EaY4",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDQxMTNjNGNiMGQ1ODAzMzYwZjEzYyIsImlhdCI6MTY2NTQwNTI2OH0.jDzwLDVjxp2MD5GRVA7I5X7xz3gFlPop6kLYKwdnOlc",
 									"type": "string"
 								}
 							]
@@ -188,7 +188,7 @@
 						"method": "PATCH",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/v1/user/633f4d03dccea50f97229428",
+							"raw": "http://localhost:5000/api/v1/user/soft",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -198,7 +198,7 @@
 								"api",
 								"v1",
 								"user",
-								"633f4d03dccea50f97229428"
+								"soft"
 							]
 						}
 					},
@@ -217,7 +217,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzM2Y1MjVlMTZlYWUyMmMwYzBlNzc4YyIsImlhdCI6MTY2NTI0OTA2MX0.aEzuJBpfLa6L8SFL0WmB-ZvSVcD9LIu2qerJuog1TvE",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDQxYTM0YTk5M2M2M2U1NmQ3ZjllMCIsImlhdCI6MTY2NTQwNzU1MX0.FzGphQPMGPuOIiAp4Z-i6mvtCJGz0pxlaS8KQ_AMJkY",
 									"type": "string"
 								}
 							]
@@ -226,7 +226,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\":\"thana\",\r\n    \"price\":1,\r\n    \"desc\":\"6 blog desc\"\r\n}",
+							"raw": "{\r\n    \"title\":\"thana news\",\r\n    \"price\":25,\r\n    \"desc\":\"blog desc news\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -298,7 +298,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzM2Y1MjVlMTZlYWUyMmMwYzBlNzc4YyIsImlhdCI6MTY2NTA5NDM0OX0.mMsjrS8qqMWtk-p0xJUX5DaJv-RUvKJKcQcTguNBsXE",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDQxMTNjNGNiMGQ1ODAzMzYwZjEzYyIsImlhdCI6MTY2NTQwNTI2OH0.jDzwLDVjxp2MD5GRVA7I5X7xz3gFlPop6kLYKwdnOlc",
 									"type": "string"
 								}
 							]
@@ -346,6 +346,16 @@
 				{
 					"name": "blogDependOnCond",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDQxYTM0YTk5M2M2M2U1NmQ3ZjllMCIsImlhdCI6MTY2NTQwNzU1MX0.FzGphQPMGPuOIiAp4Z-i6mvtCJGz0pxlaS8KQ_AMJkY",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
