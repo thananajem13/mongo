@@ -58,11 +58,11 @@ export const deleteBlog = async (req, res) => {
 }
 export const getBlogs = async (req, res) => {
     try {
-        let blogs = await blogModel.find( {})
+        const blogs = await blogModel.find( {})
         .populate([
             {
                 path: 'userId',  
-                match: [{ isDeleted: false,userId:{$ne:null} }],
+                match:  { isDeleted: false,userId:{$ne:null} } ,
                 select: "email firstname lastname isDeleted",
                 // match:{
                 //     user:{
@@ -85,9 +85,12 @@ export const getBlogs = async (req, res) => {
                 // }
                    }
         ])
+          
+       const result = blogs.filter((blog)=>{return blog.userId !=null})
          
        
-        blogs?.length ? res.json({ message: "Done", blogs }) : res.json({ message: "no blogs found", blogs })
+
+        result?.length ? res.json({ message: "Done", blogs:result }) : res.json({ message: "no blogs found", blogs:result })
     }
      catch (error) {
         res.json({ message: "catch error", error })
@@ -98,16 +101,24 @@ export const getBlogs = async (req, res) => {
 
 /*search point solution */
 export const getBlogDependOnCondition = async (req, res) => {
-    // const blogById = await blogModel.aggregate([{ $match: { isDeleted: false}}]).allowDiskUse(true);
-    const blogById = await blogModel.find({ price: { $gte: 15 },userId:req.user._id })
+    try {
+        const blogById = await blogModel.find({ price: { $gte: 15 },userId:req.user._id })
         .populate([
             {
                 path: 'userId',   
                 select: { email:1, firstname:1, lastname:1, isDeleted:1 },
-                match:[{isDeleted:false}]       
+                match:{isDeleted:false}       
             }
         ])
-    blogById ? res.json({ message: "Done", blogById }) : res.json({ message: "invalid id", blogById })
-}
+        const result = blogById.filter((blog)=>{return blog.userId !=null})
+         
+       
+
+        result?.length ? res.json({ message: "Done", blogs:result }) : res.json({ message: "no blogs found", blogs:result })
+    } catch (error) {
+        
+    }
+     
+    }
 
 
